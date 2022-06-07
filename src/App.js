@@ -1,9 +1,12 @@
 import React from 'react';
-import './App.css';
+import Table from './components/Table';
+import ContextProvider from './hooks/ContextProvider';
 
 function App() {
   return (
-    <span>E lá vamos nós!</span>
+    <ContextProvider>
+      <Table />
+    </ContextProvider>
   );
 }
 
