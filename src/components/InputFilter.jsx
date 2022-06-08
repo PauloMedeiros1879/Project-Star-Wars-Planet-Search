@@ -4,8 +4,8 @@ import Context from '../hooks/Context';
 function InputFilter() {
   const { setFilterByName } = useContext(Context);
 
-  const handleChange = ({ target: { value } }) => {
-    setFilterByName(value.toLowerCase());
+  const handleFilterName = ({ target }) => {
+    setFilterByName(target.value.toLowerCase());
   };
 
   return (
@@ -17,7 +17,7 @@ function InputFilter() {
           data-testid="name-filter"
           name="search"
           id="search"
-          onChange={ (event) => handleChange(event) }
+          onChange={ handleFilterName }
         />
       </label>
     </form>

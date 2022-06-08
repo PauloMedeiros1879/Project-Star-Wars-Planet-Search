@@ -29,13 +29,13 @@ function Table() {
             filterData.map((planet) => (
               <tr key={ planet.name }>
                 <td>{ planet.name }</td>
-                <td>{ planet.rotation }</td>
-                <td>{ planet.orbital }</td>
+                <td>{ planet.rotation_period }</td>
+                <td>{ planet.orbital_period }</td>
                 <td>{ planet.diameter }</td>
                 <td>{ planet.climate }</td>
                 <td>{ planet.gravity }</td>
                 <td>{ planet.terrain }</td>
-                <td>{ planet.surface }</td>
+                <td>{ planet.surface_water }</td>
                 <td>{ planet.population }</td>
                 <td>
                   {planet.films.map((url) => (

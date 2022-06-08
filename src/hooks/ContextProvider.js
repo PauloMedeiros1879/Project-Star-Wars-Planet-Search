@@ -5,31 +5,30 @@ import Context from './Context';
 function ContextProvider({ children }) {
   const [data, setData] = useState([]);
   const [filterData, setFilterData] = useState([]);
-  const [filterByName, setfilterByName] = useState('');
+  const [filterByName, setFilterByName] = useState('');
   const context = {
     data,
     setData,
     filterByName,
-    setfilterByName,
+    setFilterByName,
     filterData,
     setFilterData,
   };
 
   useEffect(() => {
-    async function fetchPlanets() {
-      const url = 'https://swapi-trybe.herokuapp.com/api/planets/';
-      const response = await fetch(url);
+    const fetchPlanets = async () => {
+      const response = await fetch('https://swapi-trybe.herokuapp.com/api/planets/');
       const api = await response.json();
-      const { results } = api;
-      setData(results);
-      setFilterData(results);
-    }
-
+      console.log(api);
+      setData(api.results);
+      setFilterData(api.results);
+    };
     fetchPlanets();
   }, []);
 
   useEffect(() => {
-    const testFilter = data.filter((planet) => planet.name.includes(filterByName));
+    const testFilter = data.filter((planet) => planet.name.toLowerCase()
+      .includes(filterByName));
     setFilterData(testFilter);
   }, [filterByName]);
 
