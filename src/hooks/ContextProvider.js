@@ -4,22 +4,34 @@ import Context from './Context';
 
 function ContextProvider({ children }) {
   const [data, setData] = useState([]);
+  const [filterData, setFilterData] = useState([]);
+  const [filterByName, setfilterByName] = useState('');
   const context = {
     data,
     setData,
+    filterByName,
+    setfilterByName,
+    filterData,
+    setFilterData,
   };
 
   useEffect(() => {
     async function fetchPlanets() {
       const url = 'https://swapi-trybe.herokuapp.com/api/planets/';
       const response = await fetch(url);
-      const apiData = await response.json();
-      const { results } = apiData;
+      const api = await response.json();
+      const { results } = api;
       setData(results);
+      setFilterData(results);
     }
 
     fetchPlanets();
   }, []);
+
+  useEffect(() => {
+    const testFilter = data.filter((planet) => planet.name.includes(filterByName));
+    setFilterData(testFilter);
+  }, [filterByName]);
 
   return (
     <Context.Provider value={ context }>
