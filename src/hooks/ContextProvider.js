@@ -6,6 +6,10 @@ function ContextProvider({ children }) {
   const [data, setData] = useState([]);
   const [filterData, setFilterData] = useState([]);
   const [filterByName, setFilterByName] = useState('');
+  const [filterByNumericValues, setFilterByNumericValues] = useState([]);
+  const [filterByColumn, setFilterByColumn] = useState('');
+  const [filterByComparison, setFilterByComparison] = useState('');
+  const [filterByValue, setFilterByValue] = useState('');
   const context = {
     data,
     setData,
@@ -13,6 +17,14 @@ function ContextProvider({ children }) {
     setFilterByName,
     filterData,
     setFilterData,
+    filterByNumericValues,
+    setFilterByNumericValues,
+    filterByColumn,
+    setFilterByColumn,
+    filterByComparison,
+    setFilterByComparison,
+    filterByValue,
+    setFilterByValue,
   };
 
   useEffect(() => {
