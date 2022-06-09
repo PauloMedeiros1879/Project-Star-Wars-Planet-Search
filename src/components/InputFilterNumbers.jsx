@@ -13,13 +13,13 @@ function InputFilterNumbers() {
     setFilterByValue,
   } = useContext(Context);
 
-  const handleFilter = () => {
+  const applyFilter = () => {
     const newFilterByNumericValues = {
       filterByColumn,
       filterByComparison,
       filterByValue,
     };
-    setFilterByNumericValues(...filterByNumericValues, newFilterByNumericValues);
+    setFilterByNumericValues([...filterByNumericValues, newFilterByNumericValues]);
   };
 
   return (
@@ -29,6 +29,8 @@ function InputFilterNumbers() {
         <select
           name="column"
           id="column"
+          data-testid="column-filter"
+          value={ filterByColumn }
           onChange={ ({ target }) => setFilterByColumn(target.value) }
         >
           <option>population</option>
@@ -44,6 +46,8 @@ function InputFilterNumbers() {
         <select
           name="comparison"
           id="comparison"
+          data-testid="comparison-filter"
+          value={ filterByComparison }
           onChange={ ({ target }) => setFilterByComparison(target.value) }
         >
           <option>maior que</option>
@@ -55,10 +59,19 @@ function InputFilterNumbers() {
       <input
         type="number"
         placeholder="0"
+        data-testid="value-filter"
+        value={ filterByValue }
         onChange={ ({ target }) => setFilterByValue(target.value) }
       />
 
-      <button type="button" onChange={ handleFilter }>FILTRAR</button>
+      <button
+        type="button"
+        data-testid="button-filter"
+        onClick={ applyFilter }
+      >
+        FILTRAR
+
+      </button>
     </form>
   );
 }
