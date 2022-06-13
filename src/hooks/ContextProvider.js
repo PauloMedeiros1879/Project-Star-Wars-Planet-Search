@@ -7,18 +7,8 @@ function ContextProvider({ children }) {
   const [filterData, setFilterData] = useState([]);
   const [filterByName, setFilterByName] = useState('');
   const [filterByNumericValues, setFilterByNumericValues] = useState([]);
-  const [filterByColumn, setFilterByColumn] = useState(
-    'population',
-    'orbital_period',
-    'diameter',
-    'rotation_period',
-    'surface_water',
-  );
-  const [filterByComparison, setFilterByComparison] = useState(
-    'maior que',
-    'menor que',
-    'igual a',
-  );
+  const [filterByColumn, setFilterByColumn] = useState('population');
+  const [filterByComparison, setFilterByComparison] = useState('maior que');
   const [filterByValue, setFilterByValue] = useState(0);
   const context = {
     data,
@@ -67,7 +57,7 @@ function ContextProvider({ children }) {
       }), filterName);
 
     setFilterData(resultFilterComparison);
-  }, [filterByName, filterByNumericValues]);
+  }, [filterByName, data, filterByNumericValues]);
 
   return (
     <Context.Provider value={ context }>
