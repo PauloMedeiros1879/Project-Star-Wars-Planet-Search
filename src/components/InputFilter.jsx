@@ -48,7 +48,7 @@ function InputFilter() {
 
   return (
     <form>
-      <h1>Projeto Star Wars - Trybe</h1>
+      <h1>Projeto Star Wars Planets Search - Trybe</h1>
 
       <div className="input_search">
         <label htmlFor="search">
