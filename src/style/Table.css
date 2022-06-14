@@ -1,0 +1,28 @@
+table {
+    margin-top: 12px;
+    border: 2px solid black;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  .item_color_alternate {
+    background-color: #4CAF50;
+  }
+
+  th {
+    padding: 4px;
+    border: 2px solid black;
+    border-collapse: collapse;
+  }
+  
+  td {
+    font-weight: bold;
+    padding: 7px;
+    border: 2px solid black;
+    border-collapse: collapse;
+  }
+  
+  tr {
+    padding: 4px;
+    border: 2px solid black;
+    border-collapse: collapse;
+  }

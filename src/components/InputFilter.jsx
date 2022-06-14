@@ -1,7 +1,8 @@
 import React, { useContext, useState } from 'react';
 import Context from '../hooks/Context';
+import '../style/InputFilter.css';
 
-function InputFilterNumbers() {
+function InputFilter() {
   const {
     setFilterByName,
     filterByNumericValues,
@@ -46,11 +47,14 @@ function InputFilterNumbers() {
   };
 
   return (
-    <div>
-      <form>
+    <form>
+      <h1>Projeto Star Wars - Trybe</h1>
+
+      <div className="input_search">
         <label htmlFor="search">
-          Search
+          Buscar:
           <input
+            className="item_search"
             type="text"
             data-testid="name-filter"
             name="search"
@@ -58,10 +62,13 @@ function InputFilterNumbers() {
             onChange={ handleFilterName }
           />
         </label>
+      </div>
 
+      <div className="input_containers">
         <label htmlFor="column">
-          Coluna
+          Coluna:
           <select
+            className="item_column"
             name="column"
             id="column"
             data-testid="column-filter"
@@ -73,8 +80,9 @@ function InputFilterNumbers() {
         </label>
 
         <label htmlFor="comparison">
-          Operador
+          Operador:
           <select
+            className="item_comparison"
             name="comparison"
             id="comparison"
             data-testid="comparison-filter"
@@ -88,6 +96,7 @@ function InputFilterNumbers() {
         </label>
 
         <input
+          className="item_value"
           type="number"
           placeholder="0"
           data-testid="value-filter"
@@ -96,6 +105,7 @@ function InputFilterNumbers() {
         />
 
         <button
+          className="item_btn_filter"
           type="button"
           data-testid="button-filter"
           onClick={ applyFilter }
@@ -105,29 +115,31 @@ function InputFilterNumbers() {
         </button>
 
         <button
+          className="item_btn_remove"
           type="button"
           data-testid="button-remove-filters"
           onClick={ removeFilter }
         >
-          REMOVE FILTRO
+          REMOVER FILTRO
 
         </button>
-      </form>
+      </div>
       {filterByNumericValues.map((filter, index) => (
         <div key={ `${filter.column} ${index}` } data-testid="filter">
-          <p>
+          <p className="item_value">
             {`${filter.column} ${filter.comparison} ${filter.value}`}
           </p>
           <button
+            className="item_btn_remove"
             type="button"
             onClick={ () => removeFilterItems(index) }
           >
-            Remover
+            X
           </button>
         </div>
       ))}
-    </div>
+    </form>
   );
 }
 
-export default InputFilterNumbers;
+export default InputFilter;

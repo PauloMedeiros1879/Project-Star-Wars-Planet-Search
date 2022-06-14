@@ -1,0 +1,54 @@
+body {
+    background-color: #199b5a;
+}
+
+h1 {
+   color: #000000;
+   font-family: 'Pathway Gothic One', sans-serif;
+   text-align: center;
+    font-size: 50px;
+}
+
+.input_search{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 3%;
+    font-style: oblique;
+   font-size: 1.2em;
+    font-weight: bold;
+}
+
+.input_containers {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    font-style: oblique;
+    font-size: 1.0em;
+     font-weight: bold;
+     
+}
+
+.item_search,
+.item_column,
+.item_comparison, 
+.item_value,  
+.item_btn_filter, 
+.item_btn_remove {
+    font-family: 'Pathway Gothic One', sans-serif;
+    border-color: rgb(109, 109, 109);
+    background-color: #9fffb4;
+    border-radius: 7px;
+    font-weight: bold;
+    font-size: 0.9em;
+    padding: 0.3em;
+}
+
+ .item_btn_filter:hover, .item_btn_remove:hover {
+    background-color: #000000;
+    border-color: #000000;
+    color: #9fffb4;
+ }
+

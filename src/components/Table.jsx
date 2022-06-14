@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import Context from '../hooks/Context';
+import '../style/Table.css';
 
 function Table() {
   const { filterData } = useContext(Context);
@@ -9,38 +10,38 @@ function Table() {
       <table>
         <thead>
           <tr>
-            <th>Name</th>
+            <th className="item_color_alternate">Name</th>
             <th>Rotation Period</th>
-            <th>Orbital Period</th>
+            <th className="item_color_alternate">Orbital Period</th>
             <th>Diameter</th>
-            <th>Climate</th>
+            <th className="item_color_alternate">Climate</th>
             <th>Gravity</th>
-            <th>Terrain</th>
+            <th className="item_color_alternate">Terrain</th>
             <th>Surface Water</th>
-            <th>Population</th>
+            <th className="item_color_alternate">Population</th>
             <th>Films</th>
-            <th>Created</th>
+            <th className="item_color_alternate">Created</th>
             <th>Edited</th>
-            <th>URL</th>
+            <th className="item_color_alternate">URL</th>
           </tr>
         </thead>
         <tbody>
           {
             filterData.map((planet) => (
               <tr key={ planet.name }>
-                <td>{ planet.name }</td>
+                <td className="item_color_alternate">{ planet.name }</td>
                 <td>{ planet.rotation_period }</td>
-                <td>{ planet.orbital_period }</td>
+                <td className="item_color_alternate">{ planet.orbital_period }</td>
                 <td>{ planet.diameter }</td>
-                <td>{ planet.climate }</td>
+                <td className="item_color_alternate">{ planet.climate }</td>
                 <td>{ planet.gravity }</td>
-                <td>{ planet.terrain }</td>
+                <td className="item_color_alternate">{ planet.terrain }</td>
                 <td>{ planet.surface_water }</td>
-                <td>{ planet.population }</td>
+                <td className="item_color_alternate">{ planet.population }</td>
                 <td>{ planet.films }</td>
-                <td>{ planet.created }</td>
+                <td className="item_color_alternate">{ planet.created }</td>
                 <td>{ planet.edited }</td>
-                <td>{ planet.url }</td>
+                <td className="item_color_alternate">{ planet.url }</td>
               </tr>
             ))
           }
